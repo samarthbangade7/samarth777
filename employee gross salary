@@ -1,0 +1,30 @@
+# Function to calculate the salary
+def calculate_salary(base_salary, bonus=0, deductions=0, tax_rate=0):
+    """
+    Calculate the final salary after considering bonuses, deductions, and tax.
+    
+    :param base_salary: The base salary of the employee
+    :param bonus: Any bonus amount (default is 0)
+    :param deductions: Any deductions (default is 0)
+    :param tax_rate: The tax rate as a percentage (default is 0%)
+    :return: The final salary after deductions and tax
+    """
+    # Calculate the gross salary (base salary + bonus)
+    gross_salary = base_salary + bonus
+    
+    # Calculate tax amount
+    tax_amount = (gross_salary * tax_rate) / 100
+    
+    # Calculate the net salary after deductions and tax
+    net_salary = gross_salary - deductions - tax_amount
+    
+    return net_salary
+
+# Example usage
+base_salary = float(input("Enter the base salary: "))
+bonus = float(input("Enter the bonus (if any): "))
+deductions = float(input("Enter the deductions (if any): "))
+tax_rate = float(input("Enter the tax rate (in percentage): "))
+
+final_salary = calculate_salary(base_salary, bonus, deductions, tax_rate)
+print(f"The final salary after deductions and tax is: ${final_salary:.2f}")
